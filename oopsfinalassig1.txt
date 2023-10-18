@@ -1,0 +1,143 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+
+        Double f, e, g, h;
+        int choice=0,ch;
+
+        Scanner d=new Scanner(System.in);
+        while(choice !=1){
+            System.out.println("$$$$$$$$$$$$$$$$$$$$$ MENU $$$$$$$$$$$$$$$$$$$$$$$$$");
+            System.out.println("1.add\n2.sub\n3.mul\n4.div\n5.exit\nwhich operation do you want to perform from above operation");
+            ch = d.nextInt();
+
+
+            switch(ch){
+                case 1:
+                    System.out.println("enter the value of real no 1");
+                    e = d.nextDouble();
+                    System.out.println("enter the value of imagnoray no 1");
+                    f = d.nextDouble();
+                    System.out.println("enter the value of real no 2");
+                    g = d.nextDouble();
+                    System.out.println("enter the value of imagnory no 2");
+                    h = d.nextDouble();
+                    complex c = new complex(e, f);
+                    complex c5 = new complex(g, h);
+
+                    c.print();
+                    c.add(c5);
+                    break;
+
+                case 2:
+                    System.out.println("enter the value of real no 1");
+                    e = d.nextInt();
+                    System.out.println("enter the value of imagnoray no 1");
+                    f = d.nextInt();
+                    System.out.println("enter the value of real no 2");
+                    g = d.nextInt();
+                    System.out.println("enter the value of imagnory no 2");
+                    h = d.nextInt();
+                    complex c1 = new complex(e, f);
+                    complex c6 = new complex(g, h);
+                    c1.print();
+                    c1.sub(c6);
+                    break;
+
+                case 3:
+                    System.out.println("enter the value of real no 1");
+                    e = d.nextInt();
+                    System.out.println("enter the value of imagnoray no 1");
+                    f = d.nextInt();
+                    System.out.println("enter the value of real no 2");
+                    g = d.nextInt();
+                    System.out.println("enter the value of imagnory no 2");
+                    h = d.nextInt();
+                    complex c2 = new complex(e, f);
+                    complex c7 = new complex(g, h);
+                    c2.print();
+                    c2.mul(c7);
+                    break;
+
+                case 4:
+                    System.out.println("enter the value of real no 1");
+                    e = d.nextInt();
+                    System.out.println("enter the value of imagnoray no 1");
+                    f = d.nextInt();
+                    System.out.println("enter the value of real no 2");
+                    g = d.nextInt();
+                    System.out.println("enter the value of imagnory no 2");
+                    h = d.nextInt();
+                    complex c3 = new complex(e, f);
+                    complex c8 = new complex(g, h);
+                    c3.print();
+                    c3.div(c8);
+                    break;
+
+
+
+                case 5:
+                    choice=1;
+
+            }
+
+        }
+        System.out.println("Thanks For using calculator!!");
+    }
+}
+
+
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+public class complex {
+
+    double real,img;
+
+
+
+
+    public complex( double real,double img){
+        this.real=real;
+        this.img=img;
+
+    }
+
+    public void print(){
+
+        System.out.println(" complex number 1 is:" +real+"+" +img+"i");
+       // System.out.println(" complex number 1 is:" +real_n0_2+"+" +imagnory_n0_2+"i");
+        System.out.println("---------------------------------------------------");
+    }
+    public void add(complex other){
+        double sum1 = this.real + other.real;
+        double sum2 = this.img + other.img;
+        System.out.println("addition of the complex number is:" +sum1+"+" +sum2+"i");
+        System.out.println("---------------------------------------------------");
+    }
+
+    public void sub(complex other){
+        double sub1 = this.real - other.real;
+        double sub2 = this.img - other.img;
+        System.out.println("subtraction  of the complex number is:" +sub1+"+" +sub2+"i");
+        System.out.println("---------------------------------------------------");
+
+    }
+
+    public void mul(complex other){
+        double mul1=this.real * other.real - this.img * other.img;
+        double mul2=this.real * other.img + this.img * other.real;
+        System.out.println("multiplication of the complex number is:" +mul1+"+" +mul2+"i");
+        System.out.println("---------------------------------------------------");
+
+    }
+    public void div(complex other){
+        double divider= other.real * other.real + other.img * other.img;
+        double div1=(this.real * other.real + this.img * other.img) / divider;
+        double div2=(this.img * other.real - this.real * other.img) / divider;
+
+        System.out.println("division of the complex number is:" +div1+"+" +div2+"i");
+        System.out.println("---------------------------------------------------");
+
+    }
+}
